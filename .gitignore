@@ -13,6 +13,9 @@ hs_err_pid*
 
 # Eclipse
 .project
+
+# Maven, SBT, Clojure
 .classpath
 /target/
 .cache
+bin/
