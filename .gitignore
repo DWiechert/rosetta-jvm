@@ -17,5 +17,5 @@ hs_err_pid*
 # Maven, SBT, Clojure
 .classpath
 /target/
-.cache
+.cache*
 bin/
