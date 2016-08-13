@@ -6,7 +6,7 @@
 (defn my-sum [& args]
   (reduce + args))
 
-(defn mymax
+(defn my-max
   ([x] x)
   ([x y] (if (> x y) x y))
   ([x y & more]

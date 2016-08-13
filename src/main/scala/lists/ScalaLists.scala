@@ -1,6 +1,16 @@
 package lists
 
 class ScalaLists {
+  def sum(list: List[Int]) = list.reduceLeft(_ + _)
+
+  def max(list: List[Int]): Int = {
+    list match {
+      case Nil => -1
+      case x :: Nil => x
+      case x :: y :: tail => max((if (x > y) x else y) :: tail)
+    }
+  }
+
   def exists[E](list: List[E], element: E): Boolean = {
     list match {
       case Nil => false
