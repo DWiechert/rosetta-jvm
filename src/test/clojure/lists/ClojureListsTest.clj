@@ -9,3 +9,11 @@
 (deftest mymaxtest
   (testing "my-max"
     (is (= 3 (my-max 1 2 3)))))
+
+(deftest existstrue
+  (testing "exists_True"
+    (is (= true (exists "a" "a" "b")))))
+
+(deftest existsfalse
+  (testing "exists_False"
+    (is (= false (exists "c" "a" "b")))))
