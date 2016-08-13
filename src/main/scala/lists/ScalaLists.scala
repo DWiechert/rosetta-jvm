@@ -1,6 +1,6 @@
-package exists
+package lists
 
-class ExistsScala {
+class ScalaLists {
   def exists[E](collection: List[E], element: E): Boolean = {
     collection match {
       case Nil => false
