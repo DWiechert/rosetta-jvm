@@ -12,8 +12,8 @@
 
 (deftest existstrue
   (testing "exists_True"
-    (is (= true (exists "a" "a" "b")))))
+    (is (exists "a" "a" "b"))))
 
 (deftest existsfalse
   (testing "exists_False"
-    (is (= false (exists "c" "a" "b")))))
+    (not (exists "c" "a" "b"))))
