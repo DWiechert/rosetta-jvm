@@ -3,9 +3,9 @@
   (:require [lists.ClojureLists :refer :all]))
 
 (deftest sumtest
-  (testing "Sum"
+  (testing "my-sum"
     (is (= 10 (my-sum 1 2 3 4)))))
 
 (deftest mymaxtest
-  (testing "mymax"
-    (is (= 3 (mymax 1 2 3)))))
+  (testing "my-max"
+    (is (= 3 (my-max 1 2 3)))))
