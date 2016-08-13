@@ -35,4 +35,16 @@ public class JavaListsTest {
 		final List<String> strings = Arrays.asList("a", "b");
 		assertFalse(lists.exists(strings, "c"));
 	}
+
+	@Test
+	public void indexOf_Found() {
+		final List<String> strings = Arrays.asList("a", "b");
+		assertEquals(1, lists.indexOf(strings, "b"));
+	}
+
+	@Test
+	public void indexOf_NotFound() {
+		final List<Integer> list = Arrays.asList(1, 2, 3);
+		assertEquals(-1, lists.indexOf(list, 4));
+	}
 }

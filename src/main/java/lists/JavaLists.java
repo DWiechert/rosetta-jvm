@@ -14,4 +14,15 @@ public class JavaLists {
 	public <E> boolean exists(final List<E> list, final E element) {
 		return list.stream().anyMatch(e -> e.equals(element));
 	}
+
+	public <E> int indexOf(final List<E> list, final E element) {
+		int index = 0;
+		for (final E e : list) {
+			if (e.equals(element)) {
+				return index;
+			}
+			index++;
+		}
+		return -1;
+	}
 }
