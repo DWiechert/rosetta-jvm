@@ -12,7 +12,7 @@
 
     <!-- Plug-ins and SCM found online - https://github.com/kevinsawicki/github-maven-example/blob/master/example/pom.xml -->
     <issueManagement>
-        <url>https://github.com/DWiechert/functional-programming-patterns/issues</url>
+        <url>https://github.com/DWiechert/${project.artifactId}/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
 
