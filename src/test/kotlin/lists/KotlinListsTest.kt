@@ -35,4 +35,14 @@ class KotlinListsTest {
         val list = listOf(1, 2, 3)
         assertEquals(-1, lists.indexOf(list, 4))
     }
+
+    @Test fun count_Found() {
+        val strings = listOf("a", "a", "b")
+        assertEquals(2, lists.count(strings, "a"))
+    }
+
+    @Test fun count_NotFound() {
+        val list = listOf(1, 2, 3)
+        assertEquals(0, lists.count(list, 4))
+    }
 }

@@ -20,4 +20,8 @@ class KotlinLists {
         }
         return -1
     }
+
+    fun <E> count(list: List<E>, element: E): Int {
+        return list.count { e -> e!!.equals(element) }
+    }
 }
