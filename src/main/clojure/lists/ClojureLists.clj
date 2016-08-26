@@ -12,11 +12,11 @@
   ([x y & more]
    (reduce my-max (my-max x y) more)))
 
-(defn exists
-  ([e] false)
-  ([e x] (= e x))
-  ([e x & more]
-   (if (= e x) true (exists e more))))
+(defn my-count [e elements]
+  (count (filter #(= e %) elements)))
+
+(defn exists [e elements]
+  (> (my-count e elements) 0))
 
 ; Currentlu this doesn't work, but should try to figure it out
 ;(defn- index-of-with-index
@@ -29,6 +29,3 @@
 
 (defn index-of2 [e & more]
   (.indexOf more e))
-
-(defn my-count [e elements]
-  (count (filter #(= e %) elements)))

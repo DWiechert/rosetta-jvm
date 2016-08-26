@@ -12,11 +12,11 @@
 
 (deftest exists-true
   (testing "exists-true"
-    (is (exists "a" "a" "b"))))
+    (is (exists "a" (seq ["b" "b" "a"])))))
 
 (deftest exists-false
   (testing "exists-false"
-    (not (exists "c" "a" "b"))))
+    (not (exists "c" (seq ["a" "b"])))))
 
 (deftest index-of-found
   (testing "index-of-found"
