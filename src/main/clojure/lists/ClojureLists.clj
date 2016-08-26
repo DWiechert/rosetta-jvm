@@ -18,7 +18,7 @@
   ([e x & more]
    (if (= e x) true (exists e more))))
 
-; Current this doesn't work, but should try to figure it out
+; Currentlu this doesn't work, but should try to figure it out
 ;(defn- index-of-with-index
 ;  ([e i] (do (println e i) -1))
 ;  ([e i x] (do (println e i x) (if (= e x) i -1)))
@@ -29,3 +29,6 @@
 
 (defn index-of2 [e & more]
   (.indexOf more e))
+
+(defn my-count [e elements]
+  (count (filter #(= e %) elements)))

@@ -25,3 +25,11 @@
 (deftest index-of-not-found
   (testing "index-of-not-found"
     (is (= -1 (index-of2 4 1 2 3)))))
+
+(deftest my-count-found
+  (testing "my-count-found"
+    (is (= 2 (my-count "a" (seq ["a" "a" "b"]))))))
+
+(deftest my-count-not-found
+  (testing "my-count-not-found"
+    (is (= 0 (my-count 4 (seq [1 2 3]))))))
