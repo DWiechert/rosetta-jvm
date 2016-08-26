@@ -31,4 +31,14 @@ class ScalaLists {
     }
     indexOfWithIndex(list, element, 0)
   }
+
+  def count[E](list: List[E], element: E): Int = {
+    list match {
+      case Nil                             => 0
+      case head :: Nil if head == element  => 1
+      case head :: Nil                     => 0
+      case head :: tail if head == element => 1 + count(tail, element)
+      case head :: tail                    => count(tail, element)
+    }
+  }
 }

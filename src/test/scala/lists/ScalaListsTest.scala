@@ -37,4 +37,14 @@ class ScalaListsTest extends FunSuite {
     val list = List(1, 2, 3)
     assert(lists.indexOf(list, 4) == -1)
   }
+
+  test("count_Found") {
+    val strings = List("a", "a", "b")
+    assert(lists.count(strings, "a") == 2)
+  }
+
+  test("count_NotFound") {
+    val list = List(1, 2, 3)
+    assert(lists.count(list, 4) == 0)
+  }
 }
