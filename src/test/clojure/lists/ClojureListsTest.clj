@@ -10,6 +10,14 @@
   (testing "my-max"
     (is (= 3 (my-max 1 2 3)))))
 
+(deftest my-count-found
+  (testing "my-count-found"
+    (is (= 2 (my-count "a" (seq ["a" "a" "b"]))))))
+
+(deftest my-count-not-found
+  (testing "my-count-not-found"
+    (is (= 0 (my-count 4 (seq [1 2 3]))))))
+
 (deftest exists-true
   (testing "exists-true"
     (is (exists "a" (seq ["b" "b" "a"])))))
@@ -20,16 +28,8 @@
 
 (deftest index-of-found
   (testing "index-of-found"
-    (is (= 1 (index-of2 "b" "a" "b")))))
+    (is (= 3 (index-of "d" (seq ["a" "b" "c" "d"]))))))
 
 (deftest index-of-not-found
   (testing "index-of-not-found"
-    (is (= -1 (index-of2 4 1 2 3)))))
-
-(deftest my-count-found
-  (testing "my-count-found"
-    (is (= 2 (my-count "a" (seq ["a" "a" "b"]))))))
-
-(deftest my-count-not-found
-  (testing "my-count-not-found"
-    (is (= 0 (my-count 4 (seq [1 2 3]))))))
+    (is (= -1 (index-of "e" (seq ["a" "b" "c" "d"]))))))
