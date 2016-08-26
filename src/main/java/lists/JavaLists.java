@@ -25,4 +25,8 @@ public class JavaLists {
 		}
 		return -1;
 	}
+
+	public <E> long count(final List<E> list, final E element) {
+		return list.stream().filter(e -> e.equals(element)).count();
+	}
 }

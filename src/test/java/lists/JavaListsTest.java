@@ -47,4 +47,16 @@ public class JavaListsTest {
 		final List<Integer> list = Arrays.asList(1, 2, 3);
 		assertEquals(-1, lists.indexOf(list, 4));
 	}
+
+	@Test
+	public void count_Found() {
+		final List<String> strings = Arrays.asList("a", "a", "b");
+		assertEquals(2, lists.count(strings, "a"));
+	}
+
+	@Test
+	public void count_NotFound() {
+		final List<Integer> list = Arrays.asList(1, 2, 3);
+		assertEquals(0, lists.count(list, 4));
+	}
 }
