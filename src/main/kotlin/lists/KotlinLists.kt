@@ -1,5 +1,7 @@
 package lists
 
+import java.util.*
+
 class KotlinLists {
     fun sum(list: List<Int>) = list.reduce { x, y -> x + y }
 
@@ -23,5 +25,9 @@ class KotlinLists {
 
     fun <E> count(list: List<E>, element: E): Int {
         return list.count { e -> e!!.equals(element) }
+    }
+
+    fun <E> order(list: List<E>, comparator: Comparator<E>): List<E> {
+        return list.sortedWith(comparator)
     }
 }
