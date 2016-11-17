@@ -1,8 +1,8 @@
 package lists
 
+import comparator.GreaterComparator
 import org.junit.Assert.*
 import org.junit.Test
-import java.util.*
 
 class KotlinListsTest {
     val lists = KotlinLists()
@@ -48,12 +48,8 @@ class KotlinListsTest {
     }
 
     @Test fun order() {
-        val list = listOf(1, 2, 3)
-        val expectedList = listOf(3, 2, 1)
+        val list = listOf(1L, 2L, 3L)
+        val expectedList = listOf(3L, 2L, 1L)
         assertEquals(expectedList, lists.order(list, GreaterComparator()))
-    }
-
-    private class GreaterComparator : Comparator<Int> {
-        override fun compare(o1: Int, o2: Int) = if (o1 > o2) -1 else 1
     }
 }

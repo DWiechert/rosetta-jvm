@@ -1,6 +1,7 @@
 (ns lists.ClojureListsTest
   (:require [clojure.test :refer :all])
-  (:require [lists.ClojureLists :refer :all]))
+  (:require [lists.ClojureLists :refer :all])
+  (:import (comparator GreaterComparator)))
 
 (deftest sum-test
   (testing "my-sum"
@@ -33,3 +34,9 @@
 (deftest index-of-not-found
   (testing "index-of-not-found"
     (is (= -1 (index-of "e" (seq ["a" "b" "c" "d"]))))))
+
+;(defn- greaterComparator (JavaListsTest$GreaterComparator.))
+
+(deftest order-test
+  (testing "order"
+    (is (= (seq [3 2 1]) (order (seq [1 2 3]) (GreaterComparator.))))))

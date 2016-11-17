@@ -26,3 +26,6 @@
 
 (defn index-of [e elements]
   (index-of-with-index e 0 elements))
+
+(defn order [elements comparator]
+  (sort comparator elements))
