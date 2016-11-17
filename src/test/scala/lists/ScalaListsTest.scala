@@ -47,4 +47,13 @@ class ScalaListsTest extends FunSuite {
     val list = List(1, 2, 3)
     assert(lists.count(list, 4) == 0)
   }
+
+  test("order") {
+    val list = List(1, 2, 3)
+    val expectedList = List(3, 2, 1)
+    val f = (i1: Int, i2: Int) => {
+      i1 > i2
+    }
+    assert(expectedList == lists.order(list, f))
+  }
 }

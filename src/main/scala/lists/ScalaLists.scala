@@ -41,4 +41,8 @@ class ScalaLists {
       case head :: tail                    => count(tail, element)
     }
   }
+
+  def order[E](list: List[E], f: (E, E) => Boolean): List[E] = {
+    list.sortWith(f)
+  }
 }
