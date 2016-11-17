@@ -1,6 +1,8 @@
 package lists;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class JavaLists {
 	public Integer sum(final List<Integer> list) {
@@ -28,5 +30,9 @@ public class JavaLists {
 
 	public <E> long count(final List<E> list, final E element) {
 		return list.stream().filter(e -> e.equals(element)).count();
+	}
+
+	public <E> List<E> order(final List<E> list, final Comparator<E> comparator) {
+		return list.stream().sorted(comparator).collect(Collectors.toList());
 	}
 }

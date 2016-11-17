@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class JavaListsTest {
@@ -58,5 +59,19 @@ public class JavaListsTest {
 	public void count_NotFound() {
 		final List<Integer> list = Arrays.asList(1, 2, 3);
 		assertEquals(0, lists.count(list, 4));
+	}
+
+	@Test
+	public void order() {
+		final List<Integer> list = Arrays.asList(1, 2, 3);
+		final List<Integer> expectedList = Arrays.asList(3, 2, 1);
+		assertEquals(expectedList, lists.order(list, new GreaterComparator()));
+	}
+
+	private class GreaterComparator implements Comparator<Integer> {
+		@Override
+		public int compare(final Integer o1, final Integer o2) {
+			return o1 > o2 ? -1 : 1;
+		}
 	}
 }
