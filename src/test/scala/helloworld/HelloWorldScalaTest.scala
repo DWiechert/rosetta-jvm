@@ -2,19 +2,19 @@ package helloworld
 
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import org.scalatest.FunSuite
+import org.scalatest.{FlatSpecLike, Matchers}
 
 @RunWith(classOf[JUnitRunner])
-class HelloWorldScalaTest extends FunSuite {
-  test("run") {
+class HelloWorldScalaTest extends FlatSpecLike with Matchers {
+  it should "run successfully" in {
     HelloWorldScala.main(new Array[String](0))
   }
-  
-  test("pass") {
-    assert(true)
+
+  it should "pass" in {
+    true shouldBe true
   }
-  
-  ignore("fail") {
-    assert(1 === 2)
+
+  ignore should "fail" in {
+    1 shouldBe 2
   }
 }

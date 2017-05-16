@@ -1,59 +1,59 @@
 package lists
 
 import org.junit.runner.RunWith
-import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
+import org.scalatest.{FlatSpecLike, Matchers}
 
 @RunWith(classOf[JUnitRunner])
-class ScalaListsTest extends FunSuite {
+class ScalaListsTest extends FlatSpecLike with Matchers {
   val lists = new ScalaLists
 
-  test("sum") {
+  it should "sum" in {
     val list = List(1, 2, 3, 4)
-    assert(lists.sum(list) == 10)
+    lists.sum(list) shouldBe 10
   }
 
-  test("max") {
+  it should "find the max" in {
     val list = List(1, 2, 3)
-    assert(lists.max(list) == 3)
+    lists.max(list) shouldBe 3
   }
 
-  test("exists_True") {
+  it should "exists_True" in {
     val strings = List("a", "b")
-    assert(lists.exists(strings, "a"))
+    lists.exists(strings, "a") shouldBe true
   }
 
-  test("exists_False") {
+  it should "exists_False" in {
     val strings = List("a", "b")
-    assert(lists.exists(strings, "c") == false)
+    lists.exists(strings, "c") shouldBe false
   }
 
-  test("indexOf_Found") {
+  it should "indexOf_Found" in {
     val strings = List("a", "b")
-    assert(lists.indexOf(strings, "b") == 1)
+    lists.indexOf(strings, "b") shouldBe 1
   }
 
-  test("indexOf_NotFound") {
+  it should "indexOf_NotFound" in {
     val list = List(1, 2, 3)
-    assert(lists.indexOf(list, 4) == -1)
+    lists.indexOf(list, 4) shouldBe -1
   }
 
-  test("count_Found") {
+  it should "count_Found" in {
     val strings = List("a", "a", "b")
-    assert(lists.count(strings, "a") == 2)
+    lists.count(strings, "a") shouldBe 2
   }
 
-  test("count_NotFound") {
+  it should "count_NotFound" in {
     val list = List(1, 2, 3)
-    assert(lists.count(list, 4) == 0)
+    lists.count(list, 4) shouldBe 0
   }
 
-  test("order") {
+  it should "order the elements" in {
     val list = List(1, 2, 3)
     val expectedList = List(3, 2, 1)
     val f = (i1: Int, i2: Int) => {
       i1 > i2
     }
-    assert(expectedList == lists.order(list, f))
+    lists.order(list, f) should contain theSameElementsInOrderAs expectedList
   }
 }
