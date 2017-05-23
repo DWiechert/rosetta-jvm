@@ -6,6 +6,8 @@ import org.scalatest.{FlatSpecLike, Matchers}
 
 @RunWith(classOf[JUnitRunner])
 class HelloWorldScalaTest extends FlatSpecLike with Matchers {
+  behavior of "HelloWorldScala"
+
   it should "run successfully" in {
     HelloWorldScala.main(new Array[String](0))
   }

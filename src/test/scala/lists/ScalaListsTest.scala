@@ -6,6 +6,8 @@ import org.scalatest.{FlatSpecLike, Matchers}
 
 @RunWith(classOf[JUnitRunner])
 class ScalaListsTest extends FlatSpecLike with Matchers {
+  behavior of "ScalaLists"
+
   val lists = new ScalaLists
 
   it should "sum" in {

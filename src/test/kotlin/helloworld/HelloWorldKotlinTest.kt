@@ -1,21 +1,23 @@
 package helloworld
 
 import helloworld.HelloWorldKotlin.main
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
-import org.junit.Ignore
-import org.junit.Test
+import io.kotlintest.matchers.shouldBe
+import io.kotlintest.specs.WordSpec
 
-class HelloWorldKotlinTest {
-    @Test fun run() {
-        main()
-    }
+class HelloWorldKotlinTest : WordSpec() {
+    init {
+        "HelloWorldKotlin" should {
+            "run" {
+                main()
+            }
 
-    @Test fun pass() {
-        assertTrue(true)
-    }
+            "pass" {
+                true shouldBe true
+            }
 
-    @Ignore @Test fun fail() {
-        assertEquals(1, 2)
+            "fail" {
+                1 shouldBe 2
+            }.config(enabled = false)
+        }
     }
 }

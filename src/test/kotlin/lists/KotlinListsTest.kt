@@ -1,55 +1,87 @@
 package lists
 
 import comparator.GreaterComparator
-import org.junit.Assert.*
-import org.junit.Test
+import io.kotlintest.matchers.Matcher
+import io.kotlintest.matchers.Result
+import io.kotlintest.matchers.should
+import io.kotlintest.matchers.shouldBe
+import io.kotlintest.specs.WordSpec
 
-class KotlinListsTest {
+class KotlinListsTest : WordSpec() {
     val lists = KotlinLists()
 
-    @Test fun sum() {
-        val list = listOf(1, 2, 3, 4)
-        assertEquals(10, lists.sum(list))
+    init {
+        "KotlinLists" should {
+            "sum" {
+                val list = listOf(1, 2, 3, 4)
+                lists.sum(list) shouldBe 10
+            }
+
+            "find the max" {
+                val list = listOf(1, 2, 3)
+                lists.max(list) shouldBe 3
+            }
+
+            "exists_True" {
+                val strings = listOf("a", "b")
+                lists.exists(strings, "a") shouldBe true
+            }
+
+            "exists_False" {
+                val strings = listOf("a", "b")
+                lists.exists(strings, "c") shouldBe false
+            }
+
+            "indexOf_Found" {
+                val strings = listOf("a", "b")
+                lists.indexOf(strings, "b") shouldBe 1
+            }
+
+            "indexOf_NotFound" {
+                val list = listOf(1, 2, 3)
+                lists.indexOf(list, 4) shouldBe -1
+            }
+
+            "count_Found" {
+                val strings = listOf("a", "a", "b")
+                lists.count(strings, "a") shouldBe 2
+            }
+
+            "cound_NotFound" {
+                val list = listOf(1, 2, 3)
+                lists.count(list, 4) shouldBe 0
+            }
+
+            "order the elements" {
+                val list = listOf(1L, 2L, 3L)
+                val expectedList = listOf(3L, 2L, 1L)
+                lists.order(list, GreaterComparator()) should containTheSameElementsInOrderAs(expectedList)
+            }
+        }
     }
 
-    @Test fun max() {
-        val list = listOf(1, 2, 3)
-        assertEquals(3, lists.max(list))
-    }
-
-    @Test fun exists_True() {
-        val strings = listOf("a", "b")
-        assertTrue(lists.exists(strings, "a"))
-    }
-
-    @Test fun exists_False() {
-        val strings = listOf("a", "b")
-        assertFalse(lists.exists(strings, "c"))
-    }
-
-    @Test fun indexOf_Found() {
-        val strings = listOf("a", "b")
-        assertEquals(1, lists.indexOf(strings, "b"))
-    }
-
-    @Test fun indexOf_NotFound() {
-        val list = listOf(1, 2, 3)
-        assertEquals(-1, lists.indexOf(list, 4))
-    }
-
-    @Test fun count_Found() {
-        val strings = listOf("a", "a", "b")
-        assertEquals(2, lists.count(strings, "a"))
-    }
-
-    @Test fun count_NotFound() {
-        val list = listOf(1, 2, 3)
-        assertEquals(0, lists.count(list, 4))
-    }
-
-    @Test fun order() {
-        val list = listOf(1L, 2L, 3L)
-        val expectedList = listOf(3L, 2L, 1L)
-        assertEquals(expectedList, lists.order(list, GreaterComparator()))
+    fun <E> containTheSameElementsInOrderAs(expected: List<E>) = object : Matcher<List<E>> {
+        override fun test(actual: List<E>): Result {
+            val errorMessage = "[$actual] did not contain the same elements in order as [$expected]"
+            val expectedSize = expected.size
+            val actualSize = actual.size
+            if (expectedSize != actualSize) {
+                return Result(false, errorMessage)
+            } else {
+                var eq = true
+                var message = ""
+                var index = 0
+                while (index < expectedSize) {
+                    val e = expected.get(index)
+                    val a = expected.get(index)
+                    if (e != a) {
+                        eq = false
+                        message = errorMessage
+                    }
+                    index++
+                }
+                return Result(eq, message)
+            }
+        }
     }
 }
