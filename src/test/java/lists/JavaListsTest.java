@@ -67,4 +67,12 @@ public class JavaListsTest {
 		final List<Long> expectedList = Arrays.asList(3L, 2L, 1L);
 		assertEquals(expectedList, lists.order(list, new GreaterComparator()));
 	}
+
+	@Test
+	public void zip() {
+		final List<Object> list1 = Arrays.asList("a", "b", "c");
+		final List<Object> list2 = Arrays.asList(1, 2, 3);
+		final List<Object> expectedList = Arrays.asList("a", 1, "b", 2, "c", 3);
+		assertEquals(expectedList, lists.zip(list1, list2));
+	}
 }

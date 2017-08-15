@@ -1,5 +1,6 @@
 package lists;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,7 +11,7 @@ public class JavaLists {
 	}
 
 	public Integer max(final List<Integer> list) {
-		return list.stream().max((x, y) -> Integer.compare(x, y)).get();
+		return list.stream().max(Comparator.comparingInt(x -> x)).get();
 	}
 
 	public <E> boolean exists(final List<E> list, final E element) {
@@ -34,5 +35,14 @@ public class JavaLists {
 
 	public <E> List<E> order(final List<E> list, final Comparator<E> comparator) {
 		return list.stream().sorted(comparator).collect(Collectors.toList());
+	}
+
+	public <E> List<E> zip(final List<E> list1, final List<E> list2) {
+		final List<E> zipped = new ArrayList<>(list1.size() * 2);
+		for (int i = 0; i < list1.size(); i++) {
+			zipped.add(list1.get(i));
+			zipped.add(list2.get(i));
+		}
+		return zipped;
 	}
 }
