@@ -45,4 +45,8 @@ class ScalaLists {
   def order[E](list: List[E], f: (E, E) => Boolean): List[E] = {
     list.sortWith(f)
   }
+
+	def zip[E](list1: List[E], list2: List[E]): List[E] = {
+		list1.zip(list2).flatMap(o => Seq(o._1, o._2))
+	}
 }

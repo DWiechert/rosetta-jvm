@@ -58,4 +58,11 @@ class ScalaListsTest extends FlatSpecLike with Matchers {
     }
     lists.order(list, f) should contain theSameElementsInOrderAs expectedList
   }
+
+  it should "zip" in {
+	  val list1 = List("a", "b", "c")
+	  val list2 = List(1, 2, 3)
+	  val expectedList = List("a", 1, "b", 2, "c", 3)
+	  lists.zip(list1, list2) should contain theSameElementsInOrderAs expectedList
+  }
 }
