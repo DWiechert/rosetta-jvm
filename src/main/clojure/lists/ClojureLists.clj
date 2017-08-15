@@ -29,3 +29,6 @@
 
 (defn order [elements comparator]
   (sort comparator elements))
+
+(defn zip [elements1 elements2]
+	(interleave elements1 elements2))

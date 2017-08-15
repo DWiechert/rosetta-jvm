@@ -40,3 +40,7 @@
 (deftest order-test
   (testing "order"
     (is (= (seq [3 2 1]) (order (seq [1 2 3]) (GreaterComparator.))))))
+
+(deftest zip-test
+	(testing "zip"
+		(is (= (seq ["a", 1, "b", 2, "c", 3]) (zip (seq ["a", "b", "c"]) (seq [1, 2, 3]))))))
