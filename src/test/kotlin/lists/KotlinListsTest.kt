@@ -57,6 +57,13 @@ class KotlinListsTest : WordSpec() {
                 val expectedList = listOf(3L, 2L, 1L)
                 lists.order(list, GreaterComparator()) should containTheSameElementsInOrderAs(expectedList)
             }
+
+            "zip" {
+	            val list1 = listOf("a", "b", "c")
+	            val list2 = listOf(1, 2, 3)
+	            val expectedList = listOf("a", 1, "b", 2, "c", 3)
+	            lists.zip(list1, list2) should containTheSameElementsInOrderAs(expectedList)
+            }
         }
     }
 

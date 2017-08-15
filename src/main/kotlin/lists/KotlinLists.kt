@@ -30,4 +30,8 @@ class KotlinLists {
     fun <E> order(list: List<E>, comparator: Comparator<E>): List<E> {
         return list.sortedWith(comparator)
     }
+
+    fun <E> zip(list1: List<E>, list2: List<E>): List<E> {
+	    return list1.zip(list2).flatMap { o -> listOf(o.first, o.second) }
+    }
 }
